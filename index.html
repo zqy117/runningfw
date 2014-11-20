@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<!-- ie浏览器的边界，这里表示客户端最大的边界 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />		
+		<!-- 编码字符集 -->
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>weggi's openui5 demo</title>
+		<script id="sap-ui-bootstrap" src="./ui5/sap-ui-core.js"
+			data-sap-ui-libs="sap.ui.core,sap.ui.commons" 
+			data-sap-ui-theme="sap_bluecrystal" 
+			data-sap-ui-xx-bindingSyntax="complex" 
+			data-sap-ui-resourceroots='{
+				 "inspur.gsp"	: "src/" 
+			}'>
+		</script>
+		<script>
+		window["sap-ui-loaddbg"] = false;
+		sap.ui.getCore().attachInit(function() {
+				new sap.ui.core.ComponentContainer({
+						name: "inspur.gsp.myhelloworld"
+				}).placeAt("myHelloWorld")
+		});
+		</script>
+</head>
+<body class="sapUiBody" id="myHelloWorld" />
+</html>
