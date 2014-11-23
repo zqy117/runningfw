@@ -6,7 +6,7 @@
 			<Controls0:Button height="35px" id="btn1" press="onBt1Click" text="{path:'i18n>mybutton.label'}" width="62px"/>
 		</Layout:PositionContainer>
 		<Layout:PositionContainer left="60px" top="100px">
-			<Controls0:TextView id="textView1" text="{oModel>/title}" width="240px"/>
+			<Controls0:TextView id="textView1" text="{oModel>/name}" width="240px"/>
 		</Layout:PositionContainer>
 		<Layout:PositionContainer left="60px" top="60px">
 			<Controls0:TextField id="textField1" placeholder="{path:'i18n>myfield.placeholder'}" width="130px"/>

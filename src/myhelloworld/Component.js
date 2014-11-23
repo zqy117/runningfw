@@ -25,7 +25,6 @@ sap.ui.core.UIComponent.extend('inspur.gsp.myhelloworld.Component', { // 命名�
 		this.setModel(oModel, "oModel");
 		var rootPath = jQuery.sap.getModulePath("inspur.gsp.myhelloworld");
 		var mConfig = this.getMetadata().getConfig();
-		// this.byId("textView1").setModel(oModel);
 		var i18nModel = new sap.ui.model.resource.ResourceModel({
 			bundleUrl: [rootPath, mConfig.resourceBundle].join("/")
 		});
