@@ -7,14 +7,8 @@ sap.ui.core.mvc.Controller.extend("inspur.gsp.myhelloworld.Main", {
 
 	onBt1Click	: function(e) {
 		var oView = this.getView();
-		//oModel = new sap.ui.model.json.JSONModel();
-		// var oModel = new sap.ui.model.json.JSONModel();
-		// // load data from URL
 		var oModel = this.getView().getModel("oModel");
 		oView.setModel(oModel);
-		// oModel.loadData('http://localhost:8080/user/zqy'); //+ this.byId("textField1").getValue());
-		// sap.ui.getCore().setModel(oModel);
-		// this.byId("textView1").setModel(this.getModel("oModel"));
 		$.ajax({  
 		        	url: "http://localhost:8080/user/object",
 		        	type: "Get",

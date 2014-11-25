@@ -1,0 +1,12 @@
+<OpenUI5:View 
+	xmlns="sap.ui.commons"
+	xmlns:Layout="sap.ui.commons.layout" 
+	xmlns:Formns="sap.ui.layout.form"
+	xmlns:OpenUI5="sap.ui.core.mvc"
+	xmlns:Core="sap.ui.core"
+	xmlns:M="sap.m"
+	>
+
+		<Label text="Page for Register" class="label"/>
+
+</OpenUI5:View>

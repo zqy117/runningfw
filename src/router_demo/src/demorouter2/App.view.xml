@@ -1,0 +1,32 @@
+<!-- 展示在Splitter中使用路由导航 -->
+
+<OpenUI5:View 
+	controllerName="inspur.gsp.App"
+	height="600px" 
+	width="800px" 
+	xmlns="sap.ui.commons"
+	xmlns:Layout="sap.ui.commons.layout" 
+	xmlns:Formns="sap.ui.layout.form"
+	xmlns:OpenUI5="sap.ui.core.mvc"
+	xmlns:Core="sap.ui.core"
+	xmlns:M="sap.m"
+	xmlns:ux3="sap.ui.ux3"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:U="sap.ui.unified"
+	>
+
+   <html:style>
+      .label {
+         font-size: 18px;
+         margin: 10px 0px auto auto;
+      }
+      
+   </html:style>
+
+	<U:Shell>
+		
+		<Splitter splitterOrientation="Vertical" splitterPosition="20%" minSizeFirstPane="15%" minSizeSecondPane="50%" id="appContainer">
+		</Splitter>	
+		<Button text="确认appContainer的id" press="onTest" />
+	</U:Shell>
+</OpenUI5:View>

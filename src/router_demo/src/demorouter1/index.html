@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>OpenUI 5, Demo navigation using Pages aggregation</title>
+		<script id="sap-ui-bootstrap" src="../../../ui5/sap-ui-core.js"
+			data-sap-ui-libs="sap.ui.core,sap.ui.commons" 
+			data-sap-ui-theme="sap_bluecrystal" 
+			data-sap-ui-xx-bindingSyntax="complex" 
+			data-sap-ui-resourceroots='{
+				 "inspur.gsp"	: "./"
+			}'>
+		</script>
+		<script>
+		window["sap-ui-loaddbg"] = false;
+		sap.ui.getCore().attachInit(function() {
+				new sap.ui.core.ComponentContainer({
+						name: "inspur.gsp"
+				}).placeAt("content")
+		});
+		</script>
+</head>
+<body class="sapUiBody" id="content" />
+</html>

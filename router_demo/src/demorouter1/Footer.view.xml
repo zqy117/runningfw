@@ -1,0 +1,16 @@
+
+<OpenUI5:View 
+	controllerName="inspur.gsp.Footer"
+	height="600px" 
+	width="800px" 
+	xmlns="sap.ui.commons"
+	xmlns:Layout="sap.ui.commons.layout" 
+	xmlns:Formns="sap.ui.layout.form"
+	xmlns:OpenUI5="sap.ui.core.mvc"
+	xmlns:Core="sap.ui.core"
+	xmlns:M="sap.m"
+	>
+
+	<Button text="Back" press="goBack"	/>										
+	<Button text="Forward" press="goForward" />
+</OpenUI5:View>

@@ -1,0 +1,91 @@
+<OpenUI5:View 
+	controllerName="inspur.gsp.form.form"
+	height="600px" 
+	width="600px" 
+	xmlns="sap.ui.commons"
+	xmlns:Layout="sap.ui.commons.layout" 
+	xmlns:Formns="sap.ui.layout.form"
+	xmlns:OpenUI5="sap.ui.core.mvc"
+	xmlns:Core="sap.ui.core"
+	xmlns:M="sap.m"
+	>
+
+
+	<Formns:Form id="f1" width="100%">
+		<Formns:layout>
+			<Formns:GridLayout title="L1" singleColumn="true">
+			</Formns:GridLayout>
+		</Formns:layout>	
+		<Formns:formContainers>
+			<Formns:FormContainer title="Form1">
+				<Formns:formElements>
+					<!-- row 1-->
+					<Formns:FormElement>
+						<Formns:label>
+							<Label text="姓名">
+								<layoutData>
+									<Formns:GridElementData hCells="2"/>
+								</layoutData>
+							</Label>
+						</Formns:label>
+						<Formns:fields>
+							<TextField id="name" value="{oModel>/name}">
+								<layoutData>
+									<Formns:GridElementData  hCells="auto"/>
+								</layoutData>
+							</TextField>
+						</Formns:fields>							
+					</Formns:FormElement>
+					<!-- row 2-->
+					<Formns:FormElement>
+						<Formns:label>
+							<Label text="KEY">
+								<layoutData>
+									<Formns:GridElementData hCells="2"/>
+								</layoutData>
+							</Label>
+						</Formns:label>
+						<Formns:fields>
+							<TextField id="key" value="{oModel>/key}">
+								<layoutData>
+									<Formns:GridElementData  hCells="auto"/>
+								</layoutData>
+							</TextField>
+						</Formns:fields>							
+					</Formns:FormElement>
+					<!-- row 3-->
+					<Formns:FormElement>
+						<Formns:fields>
+							<Label text="">
+								<layoutData>
+									<Formns:GridElementData hCells="auto"/>
+								</layoutData>
+							</Label>								
+							<Button text="submit" press="onBt1Click">
+								<layoutData>
+									<Formns:GridElementData hCells="2"/>
+								</layoutData>
+							</Button>
+						</Formns:fields>							
+					</Formns:FormElement>
+					<!-- row 4-->
+					<Formns:FormElement>
+						<Label text="{oModel>/name}">
+								<layoutData>
+									<Formns:GridElementData hCells="2"/>
+								</layoutData>
+							</Label>
+						<Formns:fields>								
+							<TextView text="{oModel>/key}">
+								<layoutData>
+									<Formns:GridElementData hCells="auto"/>
+								</layoutData>
+							</TextView>
+						</Formns:fields>							
+					</Formns:FormElement>
+
+				</Formns:formElements>
+			</Formns:FormContainer>
+		</Formns:formContainers>
+	</Formns:Form>
+</OpenUI5:View>
