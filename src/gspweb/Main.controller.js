@@ -22,16 +22,16 @@ sap.ui.core.mvc.Controller.extend("inspur.gsp.gspweb.Main", {
 		var myshell=this.byId("myShell");
 		var treemenu=this.byId("treemenu");
 		var paneid=this.byId("pi_browser").getId();
-		var that = this;
+		// var that = this;
 		$.ajax({  
         	// url: "http://localhost:8080/user/object",		// 取得menu数据
-        	url: "http://localhost:8080/model",		// 取得menu数据
+        	url: "http://localhost:8080/model/menuList",		// 取得menu数据
         	type: "Get",
         	dataType: "json",
         	//sync:false,
         	// data: {name:"test"},
        		success: function (json) {
-       			// debugger
+       			debugger
        			//eval('console.log(myshell)')
        			// var treemenu=owner.byId("treemenu");
        			for (var i = 0; i <json.menuList.length; i++) {
