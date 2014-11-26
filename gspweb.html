@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<!-- ie浏览器的边界，这里表示客户端最大的边界 -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />		
-		<!-- 编码字符集 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-		<title>weggi's openui5 demo</title>
+		<title>OpenUI5 GSPWEB</title>
 		<script id="sap-ui-bootstrap" src="./ui5/sap-ui-core.js"
-			data-sap-ui-libs="sap.ui.core,sap.ui.commons,sap.ui.ux3" 
+			data-sap-ui-libs="sap.ui.core,sap.ui.commons,sap.ui.table,sap.ui.ux3" 
 			data-sap-ui-theme="sap_bluecrystal" 
 			data-sap-ui-xx-bindingSyntax="complex" 
 			data-sap-ui-resourceroots='{
-				 "inspur.gsp"	: "src/" 
+				 "inspur.gsp"	: "src/"
 			}'>
 		</script>
 		<script>
@@ -19,9 +17,9 @@
 		sap.ui.getCore().attachInit(function() {
 				new sap.ui.core.ComponentContainer({
 						name: "inspur.gsp.gspweb"
-				}).placeAt("myHelloWorld")
+				}).placeAt("content")
 		});
 		</script>
 </head>
-<body class="sapUiBody" id="myHelloWorld" />
+<body class="sapUiBody" id="content" />
 </html>
