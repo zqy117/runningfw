@@ -22,14 +22,14 @@ sap.ui.core.UIComponent.extend('inspur.gsp.gspweb.Component', { // 命名空间�
 
 		sap.ui.core.UIComponent.prototype.init.apply(this, arguments);
 
-		var oModelHeaderItem = new sap.ui.model.json.JSONModel();	// Header的数据
-		this.setModel(oModelHeaderItem, "oModelHeaderItem");
+		// var oModelHeaderItem = new sap.ui.model.json.JSONModel();	// Header的数据
+		// this.setModel(oModelHeaderItem, "oModelHeaderItem");
 
-		var oModelWorksetItem = new sap.ui.model.json.JSONModel();	// Workset的数据
-		this.setModel(oModelWorksetItem, "oModelWorksetItem	");
+		// var oModelWorksetItem = new sap.ui.model.json.JSONModel();	// Workset的数据
+		// this.setModel(oModelWorksetItem, "oModelWorksetItem	");
 
-		var oModelForMenuTree = new sap.ui.model.json.JSONModel();	// 右边的显示树数据(蔬菜菜单，TreeNode数据)
-		this.setModel(oModelForMenuTree, "oModelForMenuTree");
+		// var oModelForMenuTree = new sap.ui.model.json.JSONModel();	// 右边的显示树数据(蔬菜菜单，TreeNode数据)
+		// this.setModel(oModelForMenuTree, "oModelForMenuTree");
 
 		var rootPath = jQuery.sap.getModulePath("inspur.gsp.gspweb");
 		var mConfig = this.getMetadata().getConfig();

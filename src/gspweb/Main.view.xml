@@ -2,12 +2,19 @@
   height="100%" width="100%" xmlns="sap.ui.commons"
   xmlns:l="sap.ui.layout" xmlns:OpenUI5="sap.ui.core.mvc" 
   xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"  
-  xmlns:u="sap.ui.ux3" xmlns:c="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml">
+  xmlns:u="sap.ui.ux3" xmlns:c="sap.ui.core"
+  xmlns:html="http://www.w3.org/1999/xhtml">
   
-  <u:Shell id="myShell" appIcon="images/logo.jpg" appTitle="{i18n>shell1.appTitle}" showLogoutButton="true" showSearchTool="false" showInspectorTool="false" showFeederTool="false" showTools="false" paneWidth="250px" worksetItemSelected="worksetItemSelected">
+  <u:Shell id="myShell" appIcon="images/logo.jpg" logout="shellLogout"
+      appTitle="{i18n>shell1.appTitle}" showLogoutButton="true" 
+      showSearchTool="false" showInspectorTool="false" 
+      showFeederTool="false" showTools="false" paneWidth="250px" 
+      worksetItemSelected="worksetItemSelected">
+      <!-- 要赋值为部分登录信息 -->
       <u:headerItems>
         <TextView text="Shi Liangliang"/>
         <Button text="button"/>
+        <!-- press="buttonPress"/> -->
         <MenuButton text="Help">
             <Menu id="menu">
               <MenuItem text="menu1-1"/>
@@ -15,34 +22,23 @@
             </Menu>
         </MenuButton>
       </u:headerItems>
-      <u:worksetItems>
-        <u:NavigationItem id="WI_home" key="wi_home" text="Home"/>
+      <u:worksetItems >
+
       </u:worksetItems>
       <u:paneBarItems >
         <c:Item id="pi_browser" key="pi_browser" text="treemenu"/>
       </u:paneBarItems>
+      <!-- 右侧边栏 -->
       <u:paneContent id="panecontent">
-        <Tree showHeader="false" width="300px" id="treemenu" select="tree_click">
-        <!-- 使用服务给的Menu对象数据 -->
-          <TreeNode text="{oModelForMenuTree>/name}" key="Vegetarian-diet">  
-            <!-- <TreeNode text="oModelForMenuTree>/secondMenuF/name" key="Vegetables">
-              <TreeNode text="Tomato" key="Tomato"/>
-              <TreeNode text="Bean" key="Bean"/>
-            </TreeNode>
-            <TreeNode text="Fruits" expanded="true" key="Fruits" >
-              <TreeNode text="Apple" key="Apple"/>
-              <TreeNode text="Orange" key="Orange"/>
-              <TreeNode text="Lemon" key="Lemon"/>
-              <TreeNode text="Plum" key="Plum"/>
-            </TreeNode> -->
-          </TreeNode>
-          <TreeNode text="Meat" key="Meat"/>
+        <Tree showHeader="false" width="300px"
+          id="treemenu" select="tree_click">
         </Tree>
       </u:paneContent>
       <u:content>
         <TabStrip id="tabstrip" width="100%" height="750px">
           <Tab id="first-tab" text="fisrt-tab" closable="true" >
-            <Splitter splitterOrientation="Vertical" splitterPosition="30%" minSizeFirstPane="20%" minSizeSecondPane="60%">
+            <Splitter splitterOrientation="Vertical" splitterPosition="30%"
+              minSizeFirstPane="20%" minSizeSecondPane="60%">
               <firstPaneContent>
                 <Label text="tab-left-mune"/>
               </firstPaneContent>
