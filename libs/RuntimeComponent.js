@@ -33,7 +33,7 @@ sap.ui.core.UIComponent.extend('inspur.gsp.commons.RuntimeComponent', {
 
   , onBeforeWindowClosed: function() {
     //alert("Window is closing.\n You can define your own destory process by override the 'onWindowClosed' function in RuntimeComponent.")
-    return "正在离开应用。\n\n你可以通过重载RuntimeComponent中的'onWindowClosed'、'onBeforeWindowClosed'两个方法来实现自定义销毁。";
+    // return "正在离开应用。\n\n你可以通过重载RuntimeComponent中的'onWindowClosed'、'onBeforeWindowClosed'两个方法来实现自定义销毁。";
   }
 
   , onWindowClosed: function() {
