@@ -19,6 +19,16 @@ inspur.gsp.commons.Controller.extend("inspur.gsp.rt.form.Form", {
 
 	onOpenFuncBtnClick	: function () {
 		var rt = this.getRuntime()
-		rt.openFunc("myTestTab","inspur.gsp.rt.form")
+			, newModuleTitle = "新开模块" + (++window.openedModuleCount)
+			, subComp = rt.openFunc(newModuleTitle, "inspur.gsp.rt.form", {
+				formMeta	: new sap.ui.model.json.JSONModel({
+					title	: newModuleTitle
+					, from	: this.getModel("formMeta").getData().title
+				})
+			})
+
+		this.subComponent = subComp
+
 	}
+
 })

@@ -17,12 +17,12 @@
 			</Formns:GridLayout>
 		</Formns:layout>	
 		<Formns:formContainers>
-			<Formns:FormContainer title="Form1">
+			<Formns:FormContainer title="表单: {formMeta>/title}    来自: {formMeta>/from}">
 				<Formns:formElements>
 					<!-- row 1-->
 					<Formns:FormElement>
 						<Formns:label>
-							<Label text="姓名">
+							<Label text="key">
 								<layoutData>
 									<Formns:GridElementData hCells="2"/>
 								</layoutData>
@@ -39,7 +39,7 @@
 					<!-- row 2-->
 					<Formns:FormElement>
 						<Formns:label>
-							<Label text="KEY">
+							<Label text="value">
 								<layoutData>
 									<Formns:GridElementData hCells="2"/>
 								</layoutData>
@@ -61,7 +61,7 @@
 									<Formns:GridElementData hCells="auto"/>
 								</layoutData>
 							</Label>								
-							<Button text="submit" press="onOpenFuncBtnClick">
+							<Button text="提交" press="onOpenFuncBtnClick">
 								<layoutData>
 									<Formns:GridElementData hCells="2"/>
 								</layoutData>

@@ -1,7 +1,7 @@
 jQuery.sap.declare('inspur.gsp.rt.form.Component') // 命名空间在创建向导中由用户填写。此处为必填项。
-jQuery.sap.require('sap.ui.core.UIComponent')
+jQuery.sap.require('inspur.gsp.commons.ModuleComponent')
 
-sap.ui.core.UIComponent.extend('inspur.gsp.rt.form.Component', { // 命名空间与上面定义必须一致。
+inspur.gsp.commons.ModuleComponent.extend('inspur.gsp.rt.form.Component', { // 命名空间与上面定义必须一致。
 
 	metadata: {
 		"name": "Form",

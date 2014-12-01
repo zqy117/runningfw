@@ -42,6 +42,7 @@ module.exports = function(grunt) {
 					, './src/**/*.form'
 					, './src/**/*.xaml'
 					, './src/**/*.css'
+					, './libs/**/*.js'
 					, './src/**/*.properties'
 					, './*.html'
 				]

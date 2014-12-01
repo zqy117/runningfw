@@ -1,17 +1,23 @@
 jQuery.sap.declare("inspur.gsp.rt.gspweb.Main")
 jQuery.sap.require("inspur.gsp.commons.Controller")
 
+var component = function(cId, componentId, cName, component) {
+	this.id = cId
+	this.componentId = componentId
+	this.cName = cName
+	this.component = component
+}
+
 inspur.gsp.commons.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 
-	// 自定义函数
-	findTab: function(tabs, nodeText) {
-		for (var i = tabs.length - 1; i >= 0; i--) {
-			if (tabs[i].getTitle().getText() == nodeText) {
-				return tabs[i]
+
+	findComponent: function(componentId) {
+		for (var i = components.length - 1; i >= 0; i--) {
+			if (components[i].id == componentId) {
+				return components[i]
 			}
 		}
 	},
-
 	//初始化
 	init: function() {
 
@@ -24,6 +30,7 @@ inspur.gsp.commons.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 					key: json[i].id,
 					text: json[i].name
 				}))
+			// components.set(json[i].id, new component)
 			components[i] = {
 				id: json[i].id,
 				component: json[i].componentId,
@@ -33,14 +40,18 @@ inspur.gsp.commons.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 
 		var worksetItems = myShell.getWorksetItems()
 
-		this.menuTreeInitHandler.apply(this, [components[0].id])
+		this.menuTreeInitHandler.apply(this, [components[0].id, components[0].name])
 	},
 
 
-	menuTreeInitHandler: function(componentId) {
+	menuTreeInitHandler: function(componentId, componentTitle) {
+
 		var that = this;
+		var treeMenu = that.byId("treemenu")
+		treeMenu.destroyNodes()
 		$.ajax({
-			url: "http://liubiao.gsp:18080/app/model/menuDetail.do",
+			// url: "http://liubiao.gsp:18080/app/model/menuDetail.do",
+			url: "http://liuning.gsp/app/model/menuDetail.do",
 			type: "Get",
 			dataType: "json",
 			data: {
@@ -48,9 +59,9 @@ inspur.gsp.commons.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 			},
 			success: function(json) {
 				var rootNode = new sap.ui.commons.TreeNode("rootNode" + componentId, {
-					text: components[0].name
-				})
-				var treeMenu = that.byId("treemenu")
+						text: componentTitle
+					})
+					// var treeMenu = that.byId("treemenu")
 				treeMenu.addNode(rootNode)
 				for (var i = 0; i < json.length; i++) {
 					var childNode = new sap.ui.commons.TreeNode("childNode" + json[i].id, {
@@ -65,6 +76,8 @@ inspur.gsp.commons.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 					}
 					rootNode.addNode(childNode)
 				}
+
+				// components[i]
 			}
 		})
 	},
@@ -72,66 +85,70 @@ inspur.gsp.commons.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 	//DOM元素加载完成后
 	onAfterRendering: function() {
 		var rt = this.getView().getModel("runtime")
-		//rt.openFunc("asdf")
+			//rt.openFunc("asdf")
 		var oView = this.getView()
 		myShell = this.byId("myShell")
 		num = 0
+		// components = new Map()
 		components = new Array()
-		var treemenu = this.byId("treemenu"),
+		var treeMenu = this.byId("treemenu"),
 			paneid = this.byId("pi_browser").getId(),
 			that = this
 		$.ajax({
 			// url: "http://localhost:8080/user/object",		// 取得menu数据
-			// url: "http://liuning.gsp/app/model/menuList.do", // 取得menu数据
-			url: "http://liubiao.gsp:18080/app/model/menuList.do",
+			url: "http://liuning.gsp/app/model/menuList.do", // 取得menu数据
+			// url: "http://liubiao.gsp:18080/app/model/menuList.do",
 			type: "Get",
 			dataType: "json",
 			success: function(data) {
-					that.workCenterInitHandler.apply(that, arguments)
-				}
+				that.workCenterInitHandler.apply(that, arguments)
+			}
 		})
 		myShell.openPane(paneid)
-		myShell.setPaneContent(treemenu)
+		myShell.setPaneContent(treeMenu)
 		tabstrip = this.byId("tabstrip")
 		tabstrip.attachClose(function(oEvent) {
-				tabstrip.closeTab(oEvent.getParameter("index"))
-			})
+			tabstrip.closeTab(oEvent.getParameter("index"))
+		})
 
 	},
 
 	//Shell中nav一级导航选项切换
 	worksetItemSelected: function(oEvent) {
-		console.log("test");
+		// console.log("test");
 		tabstrip = this.byId("tabstrip")
-		var oiframe = this.byId("iframecontent")
-		var oifram = this.byId("iframeconten")
-		var sId = oEvent.getParameter("key")
-		var oShell = oEvent.oSource
-		switch (sId) {
-			case "wi_home":
-				oShell.setContent(tabstrip)
-				break
-			case "wi_1_1":
-				oShell.setContent(new sap.ui.commons.TextView({
-					text: new Date().toLocaleString()
-				}), true)
-				break
-			case "wi_1_2":
-				oShell.setContent(new sap.ui.commons.Button({
-					text: "button"
-				}))
-				break
-			case "wi_1_3":
-				oShell.setContent(new sap.ui.commons.Image({
-					src: "images/logo.jpg"
-				}))
-				break
-			case "wi_api":
-				oShell.setContent(oifram)
-				break
-			default:
-				break
-		}
+			// var oiframe = this.byId("iframecontent")
+			// var oifram = this.byId("iframeconten")
+		var sId = oEvent.getParameter("key") // componentId
+		var currentComponent = this.findComponent(sId)
+		this.menuTreeInitHandler(sId, currentComponent.name)
+
+		// var oShell = oEvent.oSource
+		// switch (sId) {
+		// 	case "wi_home":
+		// 		oShell.setContent(tabstrip)
+		// 		break
+		// 	case "wi_1_1":
+		// 		oShell.setContent(new sap.ui.commons.TextView({
+		// 			text: new Date().toLocaleString()
+		// 		}), true)
+		// 		break
+		// 	case "wi_1_2":
+		// 		oShell.setContent(new sap.ui.commons.Button({
+		// 			text: "button"
+		// 		}))
+		// 		break
+		// 	case "wi_1_3":
+		// 		oShell.setContent(new sap.ui.commons.Image({
+		// 			src: "images/logo.jpg"
+		// 		}))
+		// 		break
+		// 	case "wi_api":
+		// 		oShell.setContent(oifram)
+		// 		break
+		// 	default:
+		// 		break
+		// }
 	},
 	//点击树节点
 	tree_click: function(oControlEvent) {
@@ -149,12 +166,29 @@ inspur.gsp.commons.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 
 		if (!selectedNode) return
 
+		this.getRuntime().openFunc(nodeText, "inspur.gsp.rt.form", {
+			formMeta	: new sap.ui.model.json.JSONModel({
+				title	: nodeText
+				, from	: "运行时框架"
+			})
+		})
+
+		/*
+		var rt = this.getRuntime()
+
 		var currentTab = this.findTab(tabstrip.getTabs(), nodeText)
 		if (currentTab != undefined)
 			selectIndex = tabstrip.indexOfTab(currentTab)
 		else {
 			var icomp = new sap.ui.core.ComponentContainer({
 				name: "inspur.gsp.rt.form"
+				,settings	: {
+					"__gsp_meta__"	: {
+						models	: {
+							runtime	: rt
+						}
+					}
+				}
 			})
 			var oTab = new sap.ui.commons.Tab({
 				sId: nodeText,
@@ -169,7 +203,7 @@ inspur.gsp.commons.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 		}
 
 		tabstrip.setSelectedIndex(selectIndex)
-
+		//*/
 	},
 
 	shellLogout: function() {

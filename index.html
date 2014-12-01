@@ -6,7 +6,7 @@
 		<!-- 编码字符集 -->
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		<title>weggi's openui5 demo</title>
-		<script id="sap-ui-bootstrap" src="./ui5/sap-ui-core-dbg.js"
+		<script id="sap-ui-bootstrap" src="./ui5/sap-ui-core.js"
 			data-sap-ui-libs="sap.ui.core,sap.ui.commons,sap.ui.ux3" 
 			data-sap-ui-theme="sap_bluecrystal" 
 			data-sap-ui-xx-bindingSyntax="complex" 
@@ -21,7 +21,8 @@
 				})
 		sap.ui.getCore().attachInit(function() {
 				container.placeAt("myHelloWorld")
-		});
+		})
+		window.openedModuleCount = 0
 		</script>
 </head>
 <body class="sapUiBody" id="myHelloWorld" />
