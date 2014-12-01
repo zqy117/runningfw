@@ -1,10 +1,7 @@
-var treemenu
-var selectedNode
-var tabstrip
-var tabindex
 jQuery.sap.declare("inspur.gsp.rt.gspweb.Main")
+jQuery.sap.require("inspur.gsp.commons.Controller")
 
-sap.ui.core.mvc.Controller.extend("inspur.gsp.rt.gspweb.Main", {
+inspur.gsp.commons.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 
 	// 自定义函数
 	findTab: function(tabs, nodeText) {
@@ -75,11 +72,11 @@ sap.ui.core.mvc.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 	//DOM元素加载完成后
 	onAfterRendering: function() {
 		var rt = this.getView().getModel("runtime")
-		rt.openFunc("asdf")
+		//rt.openFunc("asdf")
 		var oView = this.getView()
 		myShell = this.byId("myShell")
 		num = 0
-		components = new Array();
+		components = new Array()
 		var treemenu = this.byId("treemenu"),
 			paneid = this.byId("pi_browser").getId(),
 			that = this
@@ -149,57 +146,30 @@ sap.ui.core.mvc.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 		var TextView = new sap.ui.commons.TextView({
 			text: "This is the content of TAB" + nodeText + "\nYou can close it on his right up!"
 		})
-		if (selectedNode != undefined) {
-			switch (nodeText) {
-				case "Vegetarian diet":
-					var oTab1 = new sap.ui.commons.Tab({
-						title: new sap.ui.core.Title({
-							text: nodeText
-						}),
-						closable: true,
-						content: [oiframe]
-					})
-					tabstrip.addTab(oTab1)
-					break
-				case "Vegetables":
-					var oTab2 = new sap.ui.commons.Tab({
-						title: new sap.ui.core.Title({
-							text: nodeText
-						}),
-						closable: true,
-						content: [oifra]
-					})
-					tabstrip.addTab(oTab2)
-					break
-				default:
-					// 创建iframe
-					// var iframe=new sap.ui.core.HTML({
-					// 	content:"<iframe src='http://localhost:9000/index2.html' width='100%' height='100%' scrolling='no' framespacing='0' border='0' frameborder='0'></ifram>"})
-					var currentTab = this.findTab(tabstrip.getTabs(), nodeText)
-					if (currentTab != undefined)
-						selectIndex = tabstrip.indexOfTab(currentTab)
-					else {
-						var icomp = new sap.ui.core.ComponentContainer({
-							name: "inspur.gsp.rt.form"
-						})
-						var oTab = new sap.ui.commons.Tab({
-							sId: nodeText,
-							title: new sap.ui.core.Title({
-								text: nodeText
-							}),
-							closable: true,
-							content: [icomp]
-						})
-						tabstrip.addTab(oTab)
-						selectIndex = tabstrip.getTabs().length - 1
-					}
-					break
-			}
 
-			tabstrip.setSelectedIndex(selectIndex)
+		if (!selectedNode) return
 
-
+		var currentTab = this.findTab(tabstrip.getTabs(), nodeText)
+		if (currentTab != undefined)
+			selectIndex = tabstrip.indexOfTab(currentTab)
+		else {
+			var icomp = new sap.ui.core.ComponentContainer({
+				name: "inspur.gsp.rt.form"
+			})
+			var oTab = new sap.ui.commons.Tab({
+				sId: nodeText,
+				title: new sap.ui.core.Title({
+					text: nodeText
+				}),
+				closable: true,
+				content: [icomp]
+			})
+			tabstrip.addTab(oTab)
+			selectIndex = tabstrip.getTabs().length - 1
 		}
+
+		tabstrip.setSelectedIndex(selectIndex)
+
 	},
 
 	shellLogout: function() {

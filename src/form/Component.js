@@ -11,7 +11,7 @@ sap.ui.core.UIComponent.extend('inspur.gsp.rt.form.Component', { // 命名空间
 			"libs": ["sap.ui.core", "sap.ui.commons","sap.ui.table"],
 			"components": []
 		},
-		"rootView": "inspur.gsp.rt.form.form",
+		"rootView": "inspur.gsp.rt.form.Form",
 		"config": {
 			"resourceBundle": ["i18n/messageBundle.properties"]
 		},

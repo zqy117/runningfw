@@ -2,26 +2,14 @@ jQuery.sap.require("sap.ui.core.mvc.View")
 jQuery.sap.require("inspur.gsp.commons.RuntimeModel")
 jQuery.sap.declare("inspur.gsp.commons.RuntimeComponent")
 
-sap.ui.core.UIComponent.extend('inspur.gsp.commons.RuntimeComponent', {
+inspur.gsp.commons.UIComponent.extend('inspur.gsp.commons.RuntimeComponent', {
 
-  constructor: function(settings) {
-    this.transientModels = []
-    if (settings) {
-      this["__gsp_meta__"] = jQuery.extend(true, {}, settings["__gsp_meta__"])
-      delete settings["__gsp_meta__"]
-    }
-    sap.ui.core.UIComponent.apply(this, arguments)
-    this.restoreModels()
-    window.onbeforeunload = this.onBeforeWindowClosed
-    window.onunload = this.onWindowClosed
-    //this.rtmodel = new inspur.gsp.commons.RuntimeModel("");
-    //rtmodel.funcContainer = ""
-  }
 
-  , init: function() {
-    sap.ui.core.UIComponent.prototype.init.apply(this, arguments)
-  }
+	init: function() {
+		inspur.gsp.commons.UIComponent.prototype.init.apply(this, arguments)
+	}
 
+<<<<<<< HEAD
   , onBeforeRendering : function() {
     this.rtModel = new inspur.gsp.commons.RuntimeModel(this.getAggregation("rootControl").byId("tabstrip"))
     this.setModel(this.rtModel, "runtime")
@@ -73,24 +61,13 @@ sap.ui.core.UIComponent.extend('inspur.gsp.commons.RuntimeComponent', {
     this.transientModels[name || "DEFAULT"] = true
     this.setModel(model, name)
   }
+=======
+	, onBeforeRendering : function() {
+		this.rtModel = new inspur.gsp.commons.RuntimeModel(this.getAggregation("rootControl").byId("tabstrip"))
+		this.setModel(this.rtModel, "runtime")
+	}
+>>>>>>> 45d5971225b9349bc219e7064ce2236408e7dcd0
 
 })
 
-inspur.gsp.commons.RuntimeComponent.getGSPMetaFor = function(oControllerOrView) {
-
-  var oView = oControllerOrView;
-  if (oView instanceof sap.ui.core.mvc.Controller) {
-    oView = oView.getView();
-  }
-  if (oView instanceof sap.ui.core.mvc.View) {
-    var sOwner = sap.ui.core.Component.getOwnerIdFor(oView),
-      oComponent = sap.ui.component(sOwner);
-
-    if (oComponent) {
-      return oComponent.getGSPMeta();
-    } else {
-      return undefined;
-    }
-  }
-
-}
+inspur.gsp.commons.RuntimeComponent.getGSPMetaFor = inspur.gsp.commons.UIComponent.getGSPMetaFor

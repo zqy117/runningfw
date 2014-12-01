@@ -1,5 +1,5 @@
 <OpenUI5:View 
-	controllerName="inspur.gsp.rt.form.form"
+	controllerName="inspur.gsp.rt.form.Form"
 	height="600px" 
 	width="600px" 
 	xmlns="sap.ui.commons"
@@ -61,7 +61,7 @@
 									<Formns:GridElementData hCells="auto"/>
 								</layoutData>
 							</Label>								
-							<Button text="submit" press="onBt1Click">
+							<Button text="submit" press="onOpenFuncBtnClick">
 								<layoutData>
 									<Formns:GridElementData hCells="2"/>
 								</layoutData>

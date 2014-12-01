@@ -1,6 +1,7 @@
-jQuery.sap.declare("inspur.gsp.rt.form.form")
+jQuery.sap.declare("inspur.gsp.rt.form.Form")
+jQuery.sap.require("inspur.gsp.commons.Controller")
 
-sap.ui.core.mvc.Controller.extend("inspur.gsp.rt.form.form", {
+inspur.gsp.commons.Controller.extend("inspur.gsp.rt.form.Form", {
 
 	onBt1Click:function(e) {
 		var data = this.getView().getModel("oModel").getData();
@@ -16,4 +17,8 @@ sap.ui.core.mvc.Controller.extend("inspur.gsp.rt.form.form", {
 	Init:function(){
 	},
 
+	onOpenFuncBtnClick	: function () {
+		var rt = this.getRuntime()
+		rt.openFunc("myTestTab","inspur.gsp.rt.form")
+	}
 })
