@@ -2,9 +2,9 @@ var treemenu
 var selectedNode
 var tabstrip
 var tabindex
-jQuery.sap.declare("inspur.gsp.gspweb.Main")
+jQuery.sap.declare("inspur.gsp.rt.gspweb.Main")
 
-sap.ui.core.mvc.Controller.extend("inspur.gsp.gspweb.Main", {
+sap.ui.core.mvc.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 
 	// 自定义函数
 	findTab: function(tabs, nodeText) {
@@ -72,6 +72,8 @@ sap.ui.core.mvc.Controller.extend("inspur.gsp.gspweb.Main", {
 
 	//DOM元素加载完成后
 	onAfterRendering: function() {
+		var rt = this.getView().getModel("runtime")
+		rt.openFunc("asdf")
 		var oView = this.getView()
 		myShell = this.byId("myShell")
 		num = 0
@@ -229,7 +231,7 @@ sap.ui.core.mvc.Controller.extend("inspur.gsp.gspweb.Main", {
 						selectIndex = tabstrip.indexOfTab(currentTab)
 					else {
 						var icomp = new sap.ui.core.ComponentContainer({
-							name: "inspur.gsp.form"
+							name: "inspur.gsp.rt.form"
 						})
 						var oTab = new sap.ui.commons.Tab({
 							sId: nodeText,
