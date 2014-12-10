@@ -3,6 +3,7 @@ jQuery.sap.require("sap.ui.model.json.JSONModel")
 
 sap.ui.model.json.JSONModel.extend("inspur.gsp.commons.RuntimeModel", {
 
+	// 构造函数
 	constructor : function(arg) {
 		if (arg.constructor == sap.ui.commons.TabStrip) {
 			this.container = arg
@@ -12,13 +13,14 @@ sap.ui.model.json.JSONModel.extend("inspur.gsp.commons.RuntimeModel", {
 		}
 	}
 
-	, openFunc  : function(sTitle, sComponentId, oModels, oGSPMeta) {
+	, openFunc  : function(parent, sTitle, sComponentId, oModels, oGSPMeta) {
 		//debugger
 		var tabstrip = this.container
 			, currentTab = this.findTab(tabstrip.getTabs(), sTitle)
 			, models = jQuery.extend({}, oModels, { runtime: this })
 			, gspMeta = jQuery.extend(true, {}, oGSPMeta, { models : models })
 			, settings = { "__gsp_meta__"	: gspMeta }
+		// var currentTab = tabstrip.getTabs().filter(function)
 		if (currentTab != undefined)
 			tabstrip.setSelectedIndex(tabstrip.indexOfTab(currentTab))
 		else {
@@ -38,6 +40,11 @@ sap.ui.model.json.JSONModel.extend("inspur.gsp.commons.RuntimeModel", {
 			tabstrip.setSelectedIndex(tabstrip.getTabs().length - 1)
 		}
 
+		/*
+		if (parent.onSubComponentLoaded) {
+			parent.onSubComponentLoaded()
+		}
+		//*/
 		return subComponent
 	}
 

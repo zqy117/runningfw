@@ -21,7 +21,7 @@ inspur.gsp.commons.RuntimeComponent.extend('inspur.gsp.rt.gspweb.Component', { /
 
 	init: function() {
 
-		inspur.gsp.commons.RuntimeComponent.prototype.init.apply(this, arguments);
+		inspur.gsp.commons.RuntimeComponent.prototype.init.apply(this, arguments)
 
 		// var oModelHeaderItem = new sap.ui.model.json.JSONModel();	// Header的数据
 		// this.setModel(oModelHeaderItem, "oModelHeaderItem");
@@ -32,13 +32,12 @@ inspur.gsp.commons.RuntimeComponent.extend('inspur.gsp.rt.gspweb.Component', { /
 		// var oModelForMenuTree = new sap.ui.model.json.JSONModel();	// 右边的显示树数据(蔬菜菜单，TreeNode数据)
 		// this.setModel(oModelForMenuTree, "oModelForMenuTree");
 
-		var rootPath = jQuery.sap.getModulePath("inspur.gsp.rt.gspweb");
-		var mConfig = this.getMetadata().getConfig();
-
-		var i18nModel = new sap.ui.model.resource.ResourceModel({
-			bundleUrl: [rootPath, mConfig.resourceBundle].join("/")
-		});
-		this.setModel(i18nModel, "i18n");
+		var rootPath = jQuery.sap.getModulePath("inspur.gsp.rt.gspweb"),
+			mConfig = this.getMetadata().getConfig(),
+			i18nModel = new sap.ui.model.resource.ResourceModel({
+				bundleUrl: [rootPath, mConfig.resourceBundle].join("/")
+			})
+		this.setModel(i18nModel, "i18n")
 	}
 
 	// 以下可以包含用户自由组织的代码

@@ -1,0 +1,157 @@
+/*清除原本样式*/
+*,body{margin:0;padding:0;font-family: Arial, Helvetica, sans-serif,"Microsoft YaHei";}
+ul,ol,li{list-style:noen;}
+/*重置头部样式*/
+.sapUiUx3ShellHeader>hr{height:0;}
+.sapUiUx3ShellHeader{height: 55px;padding-top:15px;background-color:#0062AC;}
+.sapUiUx3NavBar.sapUiUx3NavBarToplevel{height:60px;}
+.sapUiUx3ShellHeader .sapUiUx3ShellHeaderTitleRight{top:12px;color:#fff;}
+.sapUiUx3ShellHeader .sapUiBtn, .sapUiUx3ShellHeader .sapUiLnk{color: #fff;}
+.sapUiUx3ShellHeader>img, .sapUiUx3ShellHeader>h1{color:#fff;font-size:18px;}
+.sapUiUx3ShellHeader-logout{background:url(LogOut_icon_hover.png) 10px 2px no-repeat;}
+/*重置一级导航样式*/
+.sapUiUx3Shell .sapUiUx3ShellWorksetBar{height:60px;position: fixed;left:290px;right:0;top:-34px;background-color:rgba(255,255,255,0) !important;background-color:rgba(255,255,255,0);z-index: 5;overflow:hidden;width:800px;}
+.sapUiUx3NavBarToplevel .sapUiUx3NavBarItemSel>a{color:#fff;}
+.sapUiUx3NavBarToplevel .sapUiUx3NavBarList>li, .sapUiUx3NavBarToplevel .sapUiUx3NavBarItem{color:#fff;}
+.sapUiUx3NavBarToplevel .sapUiUx3NavBarList>li:hover, .sapUiUx3NavBarToplevel .sapUiUx3NavBarItem:hover{color: #88CBF0;}
+.sapUiUx3NavBarToplevel .sapUiUx3NavBarItemSel>a:hover{color: #88CBF0;}
+.sapUiUx3NavBarToplevel>.sapUiUx3NavBarList{height:38px;top:13px;}
+.sapUiUx3NavBarToplevel>.sapUiUx3NavBarBack, .sapUiUx3NavBarToplevel>.sapUiUx3NavBarForward{top:27px;}
+.sapUiUx3Shell>.sapUiUx3ShellWorksetBar .sapUiUx3NavBarBack{background:url(light_WS_scroll_prev.png) -12px 3px no-repeat;}
+.sapUiUx3Shell>.sapUiUx3ShellWorksetBar .sapUiUx3NavBarForward{background:url(light_WS_scroll_next.png) -12px 3px no-repeat;}
+.sapUiUx3NavBarOverflowBtn{color:#fff;}
+/*重置主画布样式*/
+.sapUiUx3ShellCanvas .sapUiUx3ShellContent{padding:0;}
+.sapUiUx3ShellHeadStandard>.sapUiUx3ShellCanvas,.sapUiUx3ShellCanvasBackground{right:0 !important;right:0;left:290px !important;left:290px;top:60px;}
+.wrapss>.sapUiUx3ShellCanvas,.wrapss>.sapUiUx3ShellCanvasBackground{left:40px !important;left:40px;}
+/*重置二级导航样式*/
+.sapUiUx3ShellPaneBar>.sapUiUx3ShellPaneBarRight{top:-64px;}
+.sapUiUx3ShellPaneEntries{transform:rotate(0deg);-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-mz-transform:rotate(0deg);padding-left:8px;line-height: 24px;white-space:normal;}
+.sapUiUx3ShellPaneEntrySelected, .sapUiUx3ShellPaneEntrySelected:hover{font-size: 16px;width:20px;}
+.sapUiUx3ShellPaneEntry{font-size: 16px;font-weight: bold;width:20px;}
+.sapUiUx3ShellPaneBar,.sapUiUx3ShellPaneBarRight{left:0;}
+.sapUiUx3ShellPaneBar>.sapUiUx3ShellPaneBarContent{left:39px;}
+.sapUiUx3ShellPaneBarContent{padding-top:45px;}
+.sapUiUx3ShellPaneBar{top:60px;}
+
+/*tab标签页样式*/
+.sapUiTabBar{background-color:rgba(255,255,255,10);height:40px;}
+.sapUiTabBarCnt{height:36px;line-height: 27px;}
+.sapUiTabPanel{top:40px;border:0;}
+.sapUiTabClose{position: absolute;top:3px;left:123px;}
+.sapUiTab,.sapUiTabSel,.sapUiTabDsbl{height:30px;width: 120px;text-align: center;line-height: 30px;position:relative;background:#018FD4;}
+
+/*整个标签栏，设定高度	*/
+.sapUiTabBar {
+	height: 44px;
+	background-color: #F0F3F7;
+}
+/*标签内容容器列表ul*/
+.sapUiTabBarCnt{
+	height: 42px;
+	border-bottom-color: #2E8CC4;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;	
+}
+
+/*所有标签*/
+.sapUiTab, .sapUiTabSel, .sapUiTabDsbl{
+	width: 160px;
+	max-width: 160px;
+	font-size: 14px;
+	margin: 0px;
+	margin-right: 1px;
+	padding: 0 10px;
+	text-align: center;	
+	border: none;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	/*让按钮始终在最右边*/
+	position: relative;
+	height: 42px;
+	line-height: 42px;	
+}
+
+/*普通标签*/
+.sapUiTab {
+	background-color: transparent;
+	background-image: url(left-border-1.png);
+	background-repeat: no-repeat;
+	/*background-attachment: fixed;*/
+	background-position: center left;
+}
+
+.sapUiTabSel {
+	background-color: #2E8CC4;
+	font-size: 16px;
+	font-weight: normal;
+	color: white;	
+}
+
+/*第一个标签*/
+/*#__xmlview0--homeTab {*/
+.sapUiTab:first-child, .sapUiTabSel:first-child, .sapUiTabDsbl:first-child {
+	width: 160px;
+	max-width: 160px;
+	background-image: url(left-border-3.png);
+	background-repeat: no-repeat;
+	/*background-attachment: fixed;*/
+	background-position: center left;	
+}
+
+
+.sapUiTabAfterSel {
+	border: none;
+}
+
+/*鼠标滑过*/
+.sapUiTab:hover, .sapUiTabSel:hover {
+/*	background-color: #007cc0;
+	border-width: 2px;
+	border-bottom-width: 0;
+	padding: 1px 9px 2px 9px;
+	border-color: #007cc0;
+	color: #ffffff*/
+	background-color: #2E8CC4;
+	border-width: 1px;
+	padding: 0 10px;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/*关闭按钮*/
+.sapUiTabClose {
+	/*让其位置固定在右侧*/
+	position: absolute;
+	left:160px;
+	/*right: -190px;*/
+	top: 6px;
+	/*float: right;*/
+	/*vertical-align: center;*/
+	/*z-index: 2;*/
+	/*position: absolute;*/
+}
+
+/*内容面板*/
+/*设定位置*/
+.sapUiTabPanel{
+	top: 44px;
+}
+
+/*手风琴样式改造*/
+.sapUiAcdSectionCont ul,.sapUiAcdSectionCont li{list-style:none;}
+.sapUiAcdSectionCont li{line-height: 22px;font-size: 14px;color: #333;cursor:pointer;}
+.sapUiAcdSection{height: 32px;}
+.sapUiAcdSectionHdr,.sapUiAcdSectionColl .sapUiAcdSectionHdr{font-size:16px;background:#CAE8F6;height:31px;border-bottom:1px dashed #fff;}
+.sapUiAcd{border:0;background-color: rgba(0, 0, 0, 0);}
+.sapUiAcdSectionHdr:hover{background-color: #2E8CC4;}
+.sapUiAcdSectionCont{border-bottom: 0;top: 32px;padding: 20px;box-shadow: 0px 1px 2px rgba(0,0,0,.2);}
+.sapUiAcdSectionHdr>div{height: 28px;padding-top:2px;}
+/*listbox央视改造*/
+.sapUiLbx{border:0;width:100%;}
+.sapUiLbxITxt{font-size: 14px;font-family: Arial, Helvetica, sans-serif,"Microsoft YaHei";}
+/*弹出层样式*/
+.sapUiUx3OC{display: none;}
+.sapUiShd{right:0 !important;right:0;}

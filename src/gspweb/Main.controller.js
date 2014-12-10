@@ -50,8 +50,8 @@ inspur.gsp.commons.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 		var treeMenu = that.byId("treemenu")
 		treeMenu.destroyNodes()
 		$.ajax({
-			// url: "http://liubiao.gsp:18080/app/model/menuDetail.do",
-			url: "http://liuning.gsp/app/model/menuDetail.do",
+			url: "http://liubiao.gsp:18080/app/model/menuDetail.do",
+			// url: "http://liuning.gsp/app/model/menuDetail.do",
 			type: "Get",
 			dataType: "json",
 			data: {
@@ -84,11 +84,7 @@ inspur.gsp.commons.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 
 	//DOM元素加载完成后
 	onAfterRendering: function() {
-		var rt = this.getView().getModel("runtime")
-			//rt.openFunc("asdf")
-		var oView = this.getView()
 		myShell = this.byId("myShell")
-		num = 0
 		// components = new Map()
 		components = new Array()
 		var treeMenu = this.byId("treemenu"),
@@ -96,8 +92,8 @@ inspur.gsp.commons.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 			that = this
 		$.ajax({
 			// url: "http://localhost:8080/user/object",		// 取得menu数据
-			url: "http://liuning.gsp/app/model/menuList.do", // 取得menu数据
-			// url: "http://liubiao.gsp:18080/app/model/menuList.do",
+			// url: "http://liuning.gsp/app/model/menuList.do", // 取得menu数据
+			url: "http://liubiao.gsp:18080/app/model/menuList.do",
 			type: "Get",
 			dataType: "json",
 			success: function(data) {
@@ -166,7 +162,7 @@ inspur.gsp.commons.Controller.extend("inspur.gsp.rt.gspweb.Main", {
 
 		if (!selectedNode) return
 
-		this.getRuntime().openFunc(nodeText, "inspur.gsp.rt.form", {
+		this.getRuntime().openFunc(this, nodeText, "inspur.gsp.rt.form", {
 			formMeta	: new sap.ui.model.json.JSONModel({
 				title	: nodeText
 				, from	: "运行时框架"

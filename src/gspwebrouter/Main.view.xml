@@ -1,0 +1,44 @@
+<OpenUI5:View controllerName="inspur.gsp.rt.gspwebrouter.Main"
+	height="100%" width="100%" xmlns="sap.ui.commons"
+	xmlns:l="sap.ui.layout" xmlns:OpenUI5="sap.ui.core.mvc" 
+	xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"  
+	xmlns:u="sap.ui.ux3" xmlns:c="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml">
+	
+  <u:OverlayContainer id="overlaycontainer">
+      <u:content>
+        <TabStrip id="flow-strip" height="600px">
+          </TabStrip>
+      </u:content>
+  </u:OverlayContainer>
+	<u:Shell id="myShell" appIcon="images/logo.jpg" appTitle="{i18n>shell1.appTitle}" 
+    showLogoutButton="true" showSearchTool="false" showInspectorTool="false" showFeederTool="false" 
+    showTools="false" paneWidth="250px" worksetItemSelected="worksetItemSelected" paneClosed="paneClosed" 
+    paneBarItemSelected="paneBarItemSelected">
+      <u:headerItems>
+        <TextView text="{oModelUser>/username}"/>
+        <!-- //TextView text="{oModelUser>/username}asdfas{oModelUser>/username}"/> -->
+        <Button text="设置" press="ShowContainer"/>
+        <MenuButton text="帮助">
+            <Menu id="menu">
+				<MenuItem text="menu1-1"/>
+				<MenuItem text="menu1-2"/>
+			</Menu>
+        </MenuButton>
+      </u:headerItems>
+      <u:worksetItems>
+      </u:worksetItems>
+      <u:paneBarItems>
+      	<c:Item id="pi_browser" key="pi_browser" text="主页"/>
+      </u:paneBarItems>
+      <u:paneContent id="panecontent">
+      		<!-- <OpenUI5:XMLView viewName="inspur.gsp.rt.gspwebrouter.Accordion" /> -->
+          <Accordion width="230px" id="accordion">
+          </Accordion>            
+      </u:paneContent>
+      <u:content id="shellcontent">
+      	<TabStrip id="tabstrip" width="100%" height="750px">
+      	</TabStrip>
+      </u:content>
+    </u:Shell>
+	
+</OpenUI5:View>
